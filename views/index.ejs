@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <title>GetWeather</title>
+</head>
+
+<body>
+  <header>
+    <h1>GetWeather</h1>
+  </header>
+
+  <main>
+    <section class="weather-info">
+      <form action="/" method="get">
+        <label for="location">Enter a city or country:</label>
+        <input type="text" id="location" name="location" placeholder="e.g., Istanbul, Turkey" required>
+        <button type="submit">Get Weather</button>
+      </form>
+
+      <% if (error) { %>
+        <p class="error"><%= error %></p>
+      <% } else if (location) { %>
+        <h2>Weather in <%= location %>, <%= country %></h2>
+        <p><%= rain %></p>
+        <img src="<%= icon %>" alt="Weather Icon">
+        <p class="temperature">Temperature: <%= temperature %>°C</p>
+        <p class="localtime">Local Time: <%= localtime %></p>
+      <% } %>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 GetWeather. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
